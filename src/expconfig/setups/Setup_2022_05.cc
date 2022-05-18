@@ -59,16 +59,17 @@ Setup_2022_05::Setup_2022_05(const string& name, OptionsPtr opt) :
 
     // all this has to be set. Just commented out everything, for now...
     // Broken, BadTDC or NoCalib elements //
-    //CB->SetElementFlag(Detector_t::ElementFlag_t::BadTDC, {17,265,582,586,672,678,696});
-    //CB->SetElementFlag(Detector_t::ElementFlag_t::Broken, {162});
+    CB->SetElementFlag(Detector_t::ElementFlag_t::BadTDC, {17,81,162,203,265,267,672,696});
+    TAPS->SetElementFlag(Detector_t::ElementFlag_t::BadTDC, {74,78,84,137,162,219,367,371});
+    TAPSVeto->SetElementFlag(Detector_t::ElementFlag_t::BadTDC, {0,2,32,64,65,66,119,128,129,130,188,192,214,256,263,276,278,280,
+	                                                         283,286,287,304,305,321,337,349,352,375,383});
+    Tagger->SetElementFlag(Detector_t::ElementFlag_t::BadTDC, {131});
+    Tagger->SwitchOffElementRange(0, 55);
     //TAPS->SetElementFlag(Detector_t::ElementFlag_t::Broken, TAPS->GetPbWO4Channels()); //All the PbWO were turned off
     //TAPS->SetElementFlag(Detector_t::ElementFlag_t::Broken, {14,114,137,337});
-    //TAPS->SetElementFlag(Detector_t::ElementFlag_t::NoCalibFill, {64,127,138,144,145,200,217,218,283,291,346,347,356,357,364,437});
-    //TAPSVeto->SetElementFlag(Detector_t::ElementFlag_t::Broken, {0,1,2,3,5,6,7,31,36,41,64,65,66,72,75,96,119,128,129,
-    //                                                             130,188,192,193,194,195,203,214,242,243,253,254,256,257,
-    //                                                             258,263,278,287,288,292,307,311,316,320,321,322,337,349,350});
+    //TAPS->SetElementFlag(Detector_t::ElementFlag_t::NoCalibFill, {74,127,138,144,145,200,217,218,283,291,346,347,356,357,364,437});
     //TAPS->SetElementFlag(Detector_t::ElementFlag_t::NoCalibFill, {});
-    Tagger->SwitchOffElementRange(0, 55);
+    
 
     // then calibrations need some rawvalues to "physical" values converters
     // they can be quite different (especially for the COMPASS TCS system), but most of them simply decode the bytes
